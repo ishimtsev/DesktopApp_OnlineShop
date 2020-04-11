@@ -15,7 +15,13 @@ namespace DesktopApp_OnlineShop
 		public Form1()
 		{
 			InitializeComponent();
-		}
+            Outside.ItemSize = new Size(0, 1);
+            Outside.SizeMode = TabSizeMode.Fixed;
+            foreach (TabPage tab in Outside.TabPages)
+            {
+                tab.Text = "";
+            }
+        }
 
     }
 }

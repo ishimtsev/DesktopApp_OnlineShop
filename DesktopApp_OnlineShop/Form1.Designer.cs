@@ -28,8 +28,14 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             this.Outside = new System.Windows.Forms.TabControl();
             this.loginTab = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.Password = new System.Windows.Forms.Label();
+            this.Login = new System.Windows.Forms.Label();
             this.mainTab = new System.Windows.Forms.TabPage();
             this.Inside = new System.Windows.Forms.TabControl();
             this.Statistics = new System.Windows.Forms.TabPage();
@@ -37,7 +43,17 @@
             this.Search = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.дToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.меткиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addTab = new System.Windows.Forms.TabPage();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,17 +61,13 @@
             this.Path = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.Outside.SuspendLayout();
+            this.loginTab.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.Inside.SuspendLayout();
             this.lookTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.addTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +84,11 @@
             // 
             // loginTab
             // 
+            this.loginTab.Controls.Add(this.button3);
+            this.loginTab.Controls.Add(this.textBox6);
+            this.loginTab.Controls.Add(this.textBox5);
+            this.loginTab.Controls.Add(this.Password);
+            this.loginTab.Controls.Add(this.Login);
             this.loginTab.Location = new System.Drawing.Point(4, 29);
             this.loginTab.Name = "loginTab";
             this.loginTab.Padding = new System.Windows.Forms.Padding(3);
@@ -79,6 +96,49 @@
             this.loginTab.TabIndex = 0;
             this.loginTab.Text = "loginTab";
             this.loginTab.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(866, 387);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(117, 40);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Вход";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(872, 331);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 26);
+            this.textBox6.TabIndex = 3;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(872, 228);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 26);
+            this.textBox5.TabIndex = 2;
+            // 
+            // Password
+            // 
+            this.Password.AutoSize = true;
+            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Password.Location = new System.Drawing.Point(859, 280);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(124, 37);
+            this.Password.TabIndex = 1;
+            this.Password.Text = "Пароль";
+            // 
+            // Login
+            // 
+            this.Login.AutoSize = true;
+            this.Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Login.Location = new System.Drawing.Point(874, 179);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(98, 37);
+            this.Login.TabIndex = 0;
+            this.Login.Text = "Логин";
             // 
             // mainTab
             // 
@@ -144,11 +204,40 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Location = new System.Drawing.Point(4, 61);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(1853, 902);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.дToolStripMenuItem,
+            this.удалитьToolStripMenuItem,
+            this.меткиToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(302, 94);
+            // 
+            // дToolStripMenuItem
+            // 
+            this.дToolStripMenuItem.Name = "дToolStripMenuItem";
+            this.дToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
+            this.дToolStripMenuItem.Text = "Добавить единиц на склад";
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
+            this.удалитьToolStripMenuItem.Text = "Изменить";
+            // 
+            // меткиToolStripMenuItem
+            // 
+            this.меткиToolStripMenuItem.Name = "меткиToolStripMenuItem";
+            this.меткиToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
+            this.меткиToolStripMenuItem.Text = "Удалить";
             // 
             // addTab
             // 
@@ -171,6 +260,53 @@
             this.addTab.TabIndex = 2;
             this.addTab.Text = "Добавление товаров";
             this.addTab.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(489, 427);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(113, 26);
+            this.textBox4.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(485, 404);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(181, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Количество на складе";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(137, 395);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(187, 58);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Принять";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(489, 348);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(113, 26);
+            this.textBox3.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(489, 156);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(318, 140);
+            this.textBox2.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(489, 70);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(318, 26);
+            this.textBox1.TabIndex = 6;
             // 
             // label3
             // 
@@ -229,53 +365,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(489, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(318, 26);
-            this.textBox1.TabIndex = 6;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(489, 156);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(318, 140);
-            this.textBox2.TabIndex = 7;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(489, 348);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(113, 26);
-            this.textBox3.TabIndex = 8;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(137, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(187, 58);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Принять";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(485, 404);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(181, 20);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Количество на складе";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(489, 427);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(113, 26);
-            this.textBox4.TabIndex = 11;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -286,11 +375,14 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Outside.ResumeLayout(false);
+            this.loginTab.ResumeLayout(false);
+            this.loginTab.PerformLayout();
             this.mainTab.ResumeLayout(false);
             this.Inside.ResumeLayout(false);
             this.lookTab.ResumeLayout(false);
             this.lookTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.addTab.ResumeLayout(false);
             this.addTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -323,6 +415,15 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label Password;
+        private System.Windows.Forms.Label Login;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem дToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem меткиToolStripMenuItem;
     }
 }
 
