@@ -6,8 +6,34 @@ using System.Threading.Tasks;
 
 namespace DesktopApp_OnlineShop
 {
-	class FSM
+	public static class FSM
 	{
 
+		public static void Start()
+		{
+			switch (Cache.state)
+			{
+				case State.Login:
+					Console.WriteLine("Вы нажали букву Y");
+					break;
+				case State.Register:
+					Console.WriteLine("Вы нажали букву N");
+					break;
+				case State.Home:
+					Console.WriteLine("Вы нажали букву Y");
+					break;
+				case State.Cart:
+					Console.WriteLine("Вы нажали букву N");
+					break;
+				case State.Profile:
+					Console.WriteLine("Вы нажали букву Y");
+					break;
+				case State.Caption:
+					Console.WriteLine("Вы нажали букву N");
+					break;
+			}
+		}
+
+		public static void Start()
 	}
 }
