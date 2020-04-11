@@ -6,18 +6,8 @@ using System.Threading.Tasks;
 
 namespace DesktopApp_OnlineShop
 {
-	public static class Cache
+	class Cache
 	{
-		public static State state;
-	}
 
-	public enum State
-	{
-		Login,
-		Register,
-		Home,
-		Cart,
-		Profile,
-		Caption
 	}
 }
