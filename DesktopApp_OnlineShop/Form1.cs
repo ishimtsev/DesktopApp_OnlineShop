@@ -16,5 +16,6 @@ namespace DesktopApp_OnlineShop
 		{
 			InitializeComponent();
 		}
-	}
+
+    }
 }
