@@ -15,10 +15,19 @@ namespace DesktopApp_OnlineShop
 		public MainForm()
 		{
 			InitializeComponent();
+			Login.try_login();
 			//Cache.state = new State();
 			//Cache.state = State.Login;
 			DataBase.connect();
 			//FSM.Start();
+		}
+
+		public void InitializeTabs()
+		{
+			foreach (TabPage tab in tabControl1.TabPages)
+			{
+
+			}
 		}
 	}
 }

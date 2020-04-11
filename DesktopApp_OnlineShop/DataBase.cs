@@ -9,15 +9,13 @@ namespace DesktopApp_OnlineShop
 {
 	public static class DataBase
 	{
-		public static string ConnString = "";
 		public static NpgsqlConnection connection;
 
 		public static void connect()
 		{
-			//проверка соединения
 			try
 			{
-				using (NpgsqlConnection cn = new NpgsqlConnection(ConnString))
+				using (NpgsqlConnection cn = new NpgsqlConnection(Config.ConnString))
 				{
 					cn.Open();
 					connection = cn;

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace DesktopApp_OnlineShop
 {
-	class Config
+	public static class Config
 	{
-
+		public static string ConnString = "";
+		public static string login;
+		public static string password;
 	}
 }

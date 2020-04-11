@@ -34,6 +34,6 @@ namespace DesktopApp_OnlineShop
 			}
 		}
 
-		public static void Start()
+		//public static void Start()
 	}
 }
