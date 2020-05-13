@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.Outside = new System.Windows.Forms.TabControl();
             this.loginTab = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.passBox = new System.Windows.Forms.TextBox();
+            this.loginBox = new System.Windows.Forms.TextBox();
             this.Password = new System.Windows.Forms.Label();
             this.Login = new System.Windows.Forms.Label();
             this.mainTab = new System.Windows.Forms.TabPage();
@@ -44,23 +44,21 @@
             this.searchBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.дToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.меткиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeTSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.addTab = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.stashBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.putProduct = new System.Windows.Forms.Button();
+            this.priceBox = new System.Windows.Forms.TextBox();
+            this.descriptionBox = new System.Windows.Forms.TextBox();
+            this.nameBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Path = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.addImage = new System.Windows.Forms.Button();
             this.Outside.SuspendLayout();
             this.loginTab.SuspendLayout();
             this.mainTab.SuspendLayout();
@@ -84,9 +82,9 @@
             // 
             // loginTab
             // 
-            this.loginTab.Controls.Add(this.button3);
-            this.loginTab.Controls.Add(this.textBox6);
-            this.loginTab.Controls.Add(this.textBox5);
+            this.loginTab.Controls.Add(this.loginButton);
+            this.loginTab.Controls.Add(this.passBox);
+            this.loginTab.Controls.Add(this.loginBox);
             this.loginTab.Controls.Add(this.Password);
             this.loginTab.Controls.Add(this.Login);
             this.loginTab.Location = new System.Drawing.Point(4, 29);
@@ -97,28 +95,29 @@
             this.loginTab.Text = "loginTab";
             this.loginTab.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // loginButton
             // 
-            this.button3.Location = new System.Drawing.Point(866, 387);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 40);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Вход";
-            this.button3.UseVisualStyleBackColor = true;
+            this.loginButton.Location = new System.Drawing.Point(866, 387);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(117, 40);
+            this.loginButton.TabIndex = 4;
+            this.loginButton.Text = "Вход";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // textBox6
+            // passBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(872, 331);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 26);
-            this.textBox6.TabIndex = 3;
+            this.passBox.Location = new System.Drawing.Point(872, 331);
+            this.passBox.Name = "passBox";
+            this.passBox.Size = new System.Drawing.Size(100, 26);
+            this.passBox.TabIndex = 3;
             // 
-            // textBox5
+            // loginBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(872, 228);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 26);
-            this.textBox5.TabIndex = 2;
+            this.loginBox.Location = new System.Drawing.Point(872, 228);
+            this.loginBox.Name = "loginBox";
+            this.loginBox.Size = new System.Drawing.Size(100, 26);
+            this.loginBox.TabIndex = 2;
             // 
             // Password
             // 
@@ -193,6 +192,7 @@
             this.Search.TabIndex = 2;
             this.Search.Text = "Поиск";
             this.Search.UseVisualStyleBackColor = true;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // searchBox
             // 
@@ -215,44 +215,39 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.дToolStripMenuItem,
-            this.удалитьToolStripMenuItem,
-            this.меткиToolStripMenuItem});
+            this.changeTSMI,
+            this.deleteTSMI});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(302, 94);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(164, 64);
             // 
-            // дToolStripMenuItem
+            // changeTSMI
             // 
-            this.дToolStripMenuItem.Name = "дToolStripMenuItem";
-            this.дToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
-            this.дToolStripMenuItem.Text = "Добавить единиц на склад";
+            this.changeTSMI.Name = "changeTSMI";
+            this.changeTSMI.Size = new System.Drawing.Size(163, 30);
+            this.changeTSMI.Text = "Изменить";
+            this.changeTSMI.Click += new System.EventHandler(this.changeTSMI_Click);
             // 
-            // удалитьToolStripMenuItem
+            // deleteTSMI
             // 
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
-            this.удалитьToolStripMenuItem.Text = "Изменить";
-            // 
-            // меткиToolStripMenuItem
-            // 
-            this.меткиToolStripMenuItem.Name = "меткиToolStripMenuItem";
-            this.меткиToolStripMenuItem.Size = new System.Drawing.Size(301, 30);
-            this.меткиToolStripMenuItem.Text = "Удалить";
+            this.deleteTSMI.Name = "deleteTSMI";
+            this.deleteTSMI.Size = new System.Drawing.Size(163, 30);
+            this.deleteTSMI.Text = "Удалить";
+            this.deleteTSMI.Click += new System.EventHandler(this.deleteTSMI_Click);
             // 
             // addTab
             // 
-            this.addTab.Controls.Add(this.textBox4);
+            this.addTab.Controls.Add(this.stashBox);
             this.addTab.Controls.Add(this.label4);
-            this.addTab.Controls.Add(this.button2);
-            this.addTab.Controls.Add(this.textBox3);
-            this.addTab.Controls.Add(this.textBox2);
-            this.addTab.Controls.Add(this.textBox1);
+            this.addTab.Controls.Add(this.putProduct);
+            this.addTab.Controls.Add(this.priceBox);
+            this.addTab.Controls.Add(this.descriptionBox);
+            this.addTab.Controls.Add(this.nameBox);
             this.addTab.Controls.Add(this.label3);
             this.addTab.Controls.Add(this.label2);
             this.addTab.Controls.Add(this.pictureBox1);
             this.addTab.Controls.Add(this.label1);
             this.addTab.Controls.Add(this.Path);
-            this.addTab.Controls.Add(this.button1);
+            this.addTab.Controls.Add(this.addImage);
             this.addTab.Location = new System.Drawing.Point(4, 29);
             this.addTab.Name = "addTab";
             this.addTab.Padding = new System.Windows.Forms.Padding(3);
@@ -261,12 +256,12 @@
             this.addTab.Text = "Добавление товаров";
             this.addTab.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // stashBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(489, 427);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(113, 26);
-            this.textBox4.TabIndex = 11;
+            this.stashBox.Location = new System.Drawing.Point(489, 427);
+            this.stashBox.Name = "stashBox";
+            this.stashBox.Size = new System.Drawing.Size(113, 26);
+            this.stashBox.TabIndex = 11;
             // 
             // label4
             // 
@@ -277,36 +272,37 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Количество на складе";
             // 
-            // button2
+            // putProduct
             // 
-            this.button2.Location = new System.Drawing.Point(137, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(187, 58);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Принять";
-            this.button2.UseVisualStyleBackColor = true;
+            this.putProduct.Location = new System.Drawing.Point(137, 395);
+            this.putProduct.Name = "putProduct";
+            this.putProduct.Size = new System.Drawing.Size(187, 58);
+            this.putProduct.TabIndex = 9;
+            this.putProduct.Text = "Принять";
+            this.putProduct.UseVisualStyleBackColor = true;
+            this.putProduct.Click += new System.EventHandler(this.putProduct_Click);
             // 
-            // textBox3
+            // priceBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(489, 348);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(113, 26);
-            this.textBox3.TabIndex = 8;
+            this.priceBox.Location = new System.Drawing.Point(489, 348);
+            this.priceBox.Name = "priceBox";
+            this.priceBox.Size = new System.Drawing.Size(113, 26);
+            this.priceBox.TabIndex = 8;
             // 
-            // textBox2
+            // descriptionBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(489, 156);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(318, 140);
-            this.textBox2.TabIndex = 7;
+            this.descriptionBox.Location = new System.Drawing.Point(489, 156);
+            this.descriptionBox.Multiline = true;
+            this.descriptionBox.Name = "descriptionBox";
+            this.descriptionBox.Size = new System.Drawing.Size(318, 140);
+            this.descriptionBox.TabIndex = 7;
             // 
-            // textBox1
+            // nameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(489, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(318, 26);
-            this.textBox1.TabIndex = 6;
+            this.nameBox.Location = new System.Drawing.Point(489, 70);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(318, 26);
+            this.nameBox.TabIndex = 6;
             // 
             // label3
             // 
@@ -352,18 +348,15 @@
             this.Path.TabIndex = 1;
             this.Path.Text = "Путь";
             // 
-            // button1
+            // addImage
             // 
-            this.button1.Location = new System.Drawing.Point(41, 312);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(268, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить картинку товара";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.addImage.Location = new System.Drawing.Point(41, 312);
+            this.addImage.Name = "addImage";
+            this.addImage.Size = new System.Drawing.Size(268, 30);
+            this.addImage.TabIndex = 0;
+            this.addImage.Text = "Добавить картинку товара";
+            this.addImage.UseVisualStyleBackColor = true;
+            this.addImage.Click += new System.EventHandler(this.addImage_Click);
             // 
             // Form1
             // 
@@ -407,23 +400,21 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Path;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button addImage;
+        private System.Windows.Forms.TextBox stashBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button putProduct;
+        private System.Windows.Forms.TextBox priceBox;
+        private System.Windows.Forms.TextBox descriptionBox;
+        private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.TextBox passBox;
+        private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.Label Password;
         private System.Windows.Forms.Label Login;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem дToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem меткиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeTSMI;
+        private System.Windows.Forms.ToolStripMenuItem deleteTSMI;
     }
 }
 
