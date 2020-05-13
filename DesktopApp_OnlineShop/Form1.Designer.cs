@@ -59,6 +59,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Path = new System.Windows.Forms.Label();
             this.addImage = new System.Windows.Forms.Button();
+            this.lookOrderTab = new System.Windows.Forms.TabPage();
+            this.addOrderTab = new System.Windows.Forms.TabPage();
+            this.searchButtonOrders = new System.Windows.Forms.Button();
+            this.searchBoxOrders = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Outside.SuspendLayout();
             this.loginTab.SuspendLayout();
             this.mainTab.SuspendLayout();
@@ -68,6 +73,8 @@
             this.contextMenuStrip1.SuspendLayout();
             this.addTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.lookOrderTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // Outside
@@ -155,6 +162,8 @@
             this.Inside.Controls.Add(this.Statistics);
             this.Inside.Controls.Add(this.lookTab);
             this.Inside.Controls.Add(this.addTab);
+            this.Inside.Controls.Add(this.lookOrderTab);
+            this.Inside.Controls.Add(this.addOrderTab);
             this.Inside.Location = new System.Drawing.Point(8, 7);
             this.Inside.Name = "Inside";
             this.Inside.SelectedIndex = 0;
@@ -253,7 +262,7 @@
             this.addTab.Padding = new System.Windows.Forms.Padding(3);
             this.addTab.Size = new System.Drawing.Size(1863, 969);
             this.addTab.TabIndex = 2;
-            this.addTab.Text = "Добавление товаров";
+            this.addTab.Text = "Добавление/Изменение товаров";
             this.addTab.UseVisualStyleBackColor = true;
             // 
             // stashBox
@@ -358,6 +367,56 @@
             this.addImage.UseVisualStyleBackColor = true;
             this.addImage.Click += new System.EventHandler(this.addImage_Click);
             // 
+            // lookOrderTab
+            // 
+            this.lookOrderTab.Controls.Add(this.searchButtonOrders);
+            this.lookOrderTab.Controls.Add(this.searchBoxOrders);
+            this.lookOrderTab.Controls.Add(this.dataGridView2);
+            this.lookOrderTab.Location = new System.Drawing.Point(4, 29);
+            this.lookOrderTab.Name = "lookOrderTab";
+            this.lookOrderTab.Padding = new System.Windows.Forms.Padding(3);
+            this.lookOrderTab.Size = new System.Drawing.Size(1863, 969);
+            this.lookOrderTab.TabIndex = 3;
+            this.lookOrderTab.Text = "Просмотр заказов";
+            this.lookOrderTab.UseVisualStyleBackColor = true;
+            // 
+            // addOrderTab
+            // 
+            this.addOrderTab.Location = new System.Drawing.Point(4, 29);
+            this.addOrderTab.Name = "addOrderTab";
+            this.addOrderTab.Padding = new System.Windows.Forms.Padding(3);
+            this.addOrderTab.Size = new System.Drawing.Size(1863, 969);
+            this.addOrderTab.TabIndex = 4;
+            this.addOrderTab.Text = "Добавление/Изменение заказов";
+            this.addOrderTab.UseVisualStyleBackColor = true;
+            // 
+            // searchButtonOrders
+            // 
+            this.searchButtonOrders.Location = new System.Drawing.Point(292, 12);
+            this.searchButtonOrders.Name = "searchButtonOrders";
+            this.searchButtonOrders.Size = new System.Drawing.Size(75, 26);
+            this.searchButtonOrders.TabIndex = 5;
+            this.searchButtonOrders.Text = "Поиск";
+            this.searchButtonOrders.UseVisualStyleBackColor = true;
+            this.searchButtonOrders.Click += new System.EventHandler(this.searchButtonOrders_Click);
+            // 
+            // searchBoxOrders
+            // 
+            this.searchBoxOrders.Location = new System.Drawing.Point(8, 12);
+            this.searchBoxOrders.Name = "searchBoxOrders";
+            this.searchBoxOrders.Size = new System.Drawing.Size(278, 26);
+            this.searchBoxOrders.TabIndex = 4;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView2.Location = new System.Drawing.Point(5, 55);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(1853, 902);
+            this.dataGridView2.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -379,6 +438,9 @@
             this.addTab.ResumeLayout(false);
             this.addTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.lookOrderTab.ResumeLayout(false);
+            this.lookOrderTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -415,6 +477,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem changeTSMI;
         private System.Windows.Forms.ToolStripMenuItem deleteTSMI;
+        private System.Windows.Forms.TabPage lookOrderTab;
+        private System.Windows.Forms.Button searchButtonOrders;
+        private System.Windows.Forms.TextBox searchBoxOrders;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TabPage addOrderTab;
     }
 }
 

@@ -78,6 +78,11 @@ namespace DesktopApp_OnlineShop
             //У тебя, вроде, был годный модуль для поиска. Вставь его сюда, пожалуйста. Если не можешь - скажи. Вставлю простенький.
         }
 
+        private void searchButtonOrders_Click(object sender, EventArgs e)
+        {
+            //Сюда тоже
+        }
+
         private void addImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -127,5 +132,7 @@ namespace DesktopApp_OnlineShop
             WebResponse response = request.GetResponse();
             response.Close();
         }
+
+
     }
 }
