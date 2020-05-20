@@ -26,6 +26,7 @@ namespace DesktopApp_OnlineShop
             {
                 tab.Text = "";
             }
+            Outside.SelectedTab = mainTab;
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace DesktopApp_OnlineShop
             StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
             //Десериализация полученного json при помощи заранее созданного класса
             //КЛАСС requests = JsonConvert.DeserializeObject<КЛАСС>(readStream.ReadToEnd());
-
+            
             //Некая проверка соединения и полученого токена
 
             response.Close();
@@ -122,7 +123,7 @@ namespace DesktopApp_OnlineShop
             descriptionBox.Text = "";
             priceBox.Text = "";
             stashBox.Text = "";
-            pictureBox1.
+           //pictureBox1.
         }
 
         private void deleteTSMI_Click(object sender, EventArgs e)

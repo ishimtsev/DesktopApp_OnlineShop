@@ -60,10 +60,10 @@
             this.Path = new System.Windows.Forms.Label();
             this.addImage = new System.Windows.Forms.Button();
             this.lookOrderTab = new System.Windows.Forms.TabPage();
-            this.addOrderTab = new System.Windows.Forms.TabPage();
             this.searchButtonOrders = new System.Windows.Forms.Button();
             this.searchBoxOrders = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.addOrderTab = new System.Windows.Forms.TabPage();
             this.Outside.SuspendLayout();
             this.loginTab.SuspendLayout();
             this.mainTab.SuspendLayout();
@@ -336,6 +336,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(41, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(414, 249);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -380,16 +381,6 @@
             this.lookOrderTab.Text = "Просмотр заказов";
             this.lookOrderTab.UseVisualStyleBackColor = true;
             // 
-            // addOrderTab
-            // 
-            this.addOrderTab.Location = new System.Drawing.Point(4, 29);
-            this.addOrderTab.Name = "addOrderTab";
-            this.addOrderTab.Padding = new System.Windows.Forms.Padding(3);
-            this.addOrderTab.Size = new System.Drawing.Size(1863, 969);
-            this.addOrderTab.TabIndex = 4;
-            this.addOrderTab.Text = "Добавление/Изменение заказов";
-            this.addOrderTab.UseVisualStyleBackColor = true;
-            // 
             // searchButtonOrders
             // 
             this.searchButtonOrders.Location = new System.Drawing.Point(292, 12);
@@ -416,6 +407,16 @@
             this.dataGridView2.RowTemplate.Height = 28;
             this.dataGridView2.Size = new System.Drawing.Size(1853, 902);
             this.dataGridView2.TabIndex = 3;
+            // 
+            // addOrderTab
+            // 
+            this.addOrderTab.Location = new System.Drawing.Point(4, 29);
+            this.addOrderTab.Name = "addOrderTab";
+            this.addOrderTab.Padding = new System.Windows.Forms.Padding(3);
+            this.addOrderTab.Size = new System.Drawing.Size(1863, 969);
+            this.addOrderTab.TabIndex = 4;
+            this.addOrderTab.Text = "Добавление/Изменение заказов";
+            this.addOrderTab.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
