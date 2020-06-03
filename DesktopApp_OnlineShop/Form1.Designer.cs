@@ -82,9 +82,10 @@
             this.Outside.Controls.Add(this.loginTab);
             this.Outside.Controls.Add(this.mainTab);
             this.Outside.Location = new System.Drawing.Point(1, -2);
+            this.Outside.Margin = new System.Windows.Forms.Padding(4);
             this.Outside.Name = "Outside";
             this.Outside.SelectedIndex = 0;
-            this.Outside.Size = new System.Drawing.Size(1893, 1048);
+            this.Outside.Size = new System.Drawing.Size(2524, 1310);
             this.Outside.TabIndex = 0;
             // 
             // loginTab
@@ -94,19 +95,21 @@
             this.loginTab.Controls.Add(this.loginBox);
             this.loginTab.Controls.Add(this.Password);
             this.loginTab.Controls.Add(this.Login);
-            this.loginTab.Location = new System.Drawing.Point(4, 29);
+            this.loginTab.Location = new System.Drawing.Point(8, 39);
+            this.loginTab.Margin = new System.Windows.Forms.Padding(4);
             this.loginTab.Name = "loginTab";
-            this.loginTab.Padding = new System.Windows.Forms.Padding(3);
-            this.loginTab.Size = new System.Drawing.Size(1885, 1015);
+            this.loginTab.Padding = new System.Windows.Forms.Padding(4);
+            this.loginTab.Size = new System.Drawing.Size(2508, 1263);
             this.loginTab.TabIndex = 0;
             this.loginTab.Text = "loginTab";
             this.loginTab.UseVisualStyleBackColor = true;
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(866, 387);
+            this.loginButton.Location = new System.Drawing.Point(1155, 484);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(4);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(117, 40);
+            this.loginButton.Size = new System.Drawing.Size(156, 50);
             this.loginButton.TabIndex = 4;
             this.loginButton.Text = "Вход";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -114,25 +117,28 @@
             // 
             // passBox
             // 
-            this.passBox.Location = new System.Drawing.Point(872, 331);
+            this.passBox.Location = new System.Drawing.Point(1163, 414);
+            this.passBox.Margin = new System.Windows.Forms.Padding(4);
             this.passBox.Name = "passBox";
-            this.passBox.Size = new System.Drawing.Size(100, 26);
+            this.passBox.Size = new System.Drawing.Size(132, 31);
             this.passBox.TabIndex = 3;
             // 
             // loginBox
             // 
-            this.loginBox.Location = new System.Drawing.Point(872, 228);
+            this.loginBox.Location = new System.Drawing.Point(1163, 285);
+            this.loginBox.Margin = new System.Windows.Forms.Padding(4);
             this.loginBox.Name = "loginBox";
-            this.loginBox.Size = new System.Drawing.Size(100, 26);
+            this.loginBox.Size = new System.Drawing.Size(132, 31);
             this.loginBox.TabIndex = 2;
             // 
             // Password
             // 
             this.Password.AutoSize = true;
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Password.Location = new System.Drawing.Point(859, 280);
+            this.Password.Location = new System.Drawing.Point(1145, 350);
+            this.Password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(124, 37);
+            this.Password.Size = new System.Drawing.Size(172, 51);
             this.Password.TabIndex = 1;
             this.Password.Text = "Пароль";
             // 
@@ -140,19 +146,21 @@
             // 
             this.Login.AutoSize = true;
             this.Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Login.Location = new System.Drawing.Point(874, 179);
+            this.Login.Location = new System.Drawing.Point(1165, 224);
+            this.Login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(98, 37);
+            this.Login.Size = new System.Drawing.Size(140, 51);
             this.Login.TabIndex = 0;
             this.Login.Text = "Логин";
             // 
             // mainTab
             // 
             this.mainTab.Controls.Add(this.Inside);
-            this.mainTab.Location = new System.Drawing.Point(4, 29);
+            this.mainTab.Location = new System.Drawing.Point(8, 39);
+            this.mainTab.Margin = new System.Windows.Forms.Padding(4);
             this.mainTab.Name = "mainTab";
-            this.mainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.mainTab.Size = new System.Drawing.Size(1885, 1015);
+            this.mainTab.Padding = new System.Windows.Forms.Padding(4);
+            this.mainTab.Size = new System.Drawing.Size(2508, 1263);
             this.mainTab.TabIndex = 1;
             this.mainTab.Text = "mainTab";
             this.mainTab.UseVisualStyleBackColor = true;
@@ -164,18 +172,20 @@
             this.Inside.Controls.Add(this.addTab);
             this.Inside.Controls.Add(this.lookOrderTab);
             this.Inside.Controls.Add(this.addOrderTab);
-            this.Inside.Location = new System.Drawing.Point(8, 7);
+            this.Inside.Location = new System.Drawing.Point(11, 9);
+            this.Inside.Margin = new System.Windows.Forms.Padding(4);
             this.Inside.Name = "Inside";
             this.Inside.SelectedIndex = 0;
-            this.Inside.Size = new System.Drawing.Size(1871, 1002);
+            this.Inside.Size = new System.Drawing.Size(2495, 1252);
             this.Inside.TabIndex = 0;
             // 
             // Statistics
             // 
-            this.Statistics.Location = new System.Drawing.Point(4, 29);
+            this.Statistics.Location = new System.Drawing.Point(8, 39);
+            this.Statistics.Margin = new System.Windows.Forms.Padding(4);
             this.Statistics.Name = "Statistics";
-            this.Statistics.Padding = new System.Windows.Forms.Padding(3);
-            this.Statistics.Size = new System.Drawing.Size(1863, 969);
+            this.Statistics.Padding = new System.Windows.Forms.Padding(4);
+            this.Statistics.Size = new System.Drawing.Size(2479, 1205);
             this.Statistics.TabIndex = 0;
             this.Statistics.Text = "Статистика";
             this.Statistics.UseVisualStyleBackColor = true;
@@ -185,19 +195,21 @@
             this.lookTab.Controls.Add(this.Search);
             this.lookTab.Controls.Add(this.searchBox);
             this.lookTab.Controls.Add(this.dataGridView1);
-            this.lookTab.Location = new System.Drawing.Point(4, 29);
+            this.lookTab.Location = new System.Drawing.Point(8, 39);
+            this.lookTab.Margin = new System.Windows.Forms.Padding(4);
             this.lookTab.Name = "lookTab";
-            this.lookTab.Padding = new System.Windows.Forms.Padding(3);
-            this.lookTab.Size = new System.Drawing.Size(1863, 969);
+            this.lookTab.Padding = new System.Windows.Forms.Padding(4);
+            this.lookTab.Size = new System.Drawing.Size(2479, 1205);
             this.lookTab.TabIndex = 1;
             this.lookTab.Text = "Просмотр товаров";
             this.lookTab.UseVisualStyleBackColor = true;
             // 
             // Search
             // 
-            this.Search.Location = new System.Drawing.Point(291, 18);
+            this.Search.Location = new System.Drawing.Point(388, 22);
+            this.Search.Margin = new System.Windows.Forms.Padding(4);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(75, 26);
+            this.Search.Size = new System.Drawing.Size(100, 32);
             this.Search.TabIndex = 2;
             this.Search.Text = "Поиск";
             this.Search.UseVisualStyleBackColor = true;
@@ -205,19 +217,22 @@
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(7, 18);
+            this.searchBox.Location = new System.Drawing.Point(9, 22);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(4);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(278, 26);
+            this.searchBox.Size = new System.Drawing.Size(369, 31);
             this.searchBox.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 61);
+            this.dataGridView1.Location = new System.Drawing.Point(5, 76);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1853, 902);
+            this.dataGridView1.Size = new System.Drawing.Size(2471, 1128);
             this.dataGridView1.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -227,19 +242,19 @@
             this.changeTSMI,
             this.deleteTSMI});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(164, 64);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(200, 80);
             // 
             // changeTSMI
             // 
             this.changeTSMI.Name = "changeTSMI";
-            this.changeTSMI.Size = new System.Drawing.Size(163, 30);
+            this.changeTSMI.Size = new System.Drawing.Size(199, 38);
             this.changeTSMI.Text = "Изменить";
             this.changeTSMI.Click += new System.EventHandler(this.changeTSMI_Click);
             // 
             // deleteTSMI
             // 
             this.deleteTSMI.Name = "deleteTSMI";
-            this.deleteTSMI.Size = new System.Drawing.Size(163, 30);
+            this.deleteTSMI.Size = new System.Drawing.Size(199, 38);
             this.deleteTSMI.Text = "Удалить";
             this.deleteTSMI.Click += new System.EventHandler(this.deleteTSMI_Click);
             // 
@@ -257,35 +272,39 @@
             this.addTab.Controls.Add(this.label1);
             this.addTab.Controls.Add(this.Path);
             this.addTab.Controls.Add(this.addImage);
-            this.addTab.Location = new System.Drawing.Point(4, 29);
+            this.addTab.Location = new System.Drawing.Point(8, 39);
+            this.addTab.Margin = new System.Windows.Forms.Padding(4);
             this.addTab.Name = "addTab";
-            this.addTab.Padding = new System.Windows.Forms.Padding(3);
-            this.addTab.Size = new System.Drawing.Size(1863, 969);
+            this.addTab.Padding = new System.Windows.Forms.Padding(4);
+            this.addTab.Size = new System.Drawing.Size(2479, 1205);
             this.addTab.TabIndex = 2;
             this.addTab.Text = "Добавление/Изменение товаров";
             this.addTab.UseVisualStyleBackColor = true;
             // 
             // stashBox
             // 
-            this.stashBox.Location = new System.Drawing.Point(489, 427);
+            this.stashBox.Location = new System.Drawing.Point(652, 534);
+            this.stashBox.Margin = new System.Windows.Forms.Padding(4);
             this.stashBox.Name = "stashBox";
-            this.stashBox.Size = new System.Drawing.Size(113, 26);
+            this.stashBox.Size = new System.Drawing.Size(149, 31);
             this.stashBox.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(485, 404);
+            this.label4.Location = new System.Drawing.Point(647, 505);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(181, 20);
+            this.label4.Size = new System.Drawing.Size(235, 25);
             this.label4.TabIndex = 10;
             this.label4.Text = "Количество на складе";
             // 
             // putProduct
             // 
-            this.putProduct.Location = new System.Drawing.Point(137, 395);
+            this.putProduct.Location = new System.Drawing.Point(183, 494);
+            this.putProduct.Margin = new System.Windows.Forms.Padding(4);
             this.putProduct.Name = "putProduct";
-            this.putProduct.Size = new System.Drawing.Size(187, 58);
+            this.putProduct.Size = new System.Drawing.Size(249, 72);
             this.putProduct.TabIndex = 9;
             this.putProduct.Text = "Принять";
             this.putProduct.UseVisualStyleBackColor = true;
@@ -293,49 +312,55 @@
             // 
             // priceBox
             // 
-            this.priceBox.Location = new System.Drawing.Point(489, 348);
+            this.priceBox.Location = new System.Drawing.Point(652, 435);
+            this.priceBox.Margin = new System.Windows.Forms.Padding(4);
             this.priceBox.Name = "priceBox";
-            this.priceBox.Size = new System.Drawing.Size(113, 26);
+            this.priceBox.Size = new System.Drawing.Size(149, 31);
             this.priceBox.TabIndex = 8;
             // 
             // descriptionBox
             // 
-            this.descriptionBox.Location = new System.Drawing.Point(489, 156);
+            this.descriptionBox.Location = new System.Drawing.Point(652, 195);
+            this.descriptionBox.Margin = new System.Windows.Forms.Padding(4);
             this.descriptionBox.Multiline = true;
             this.descriptionBox.Name = "descriptionBox";
-            this.descriptionBox.Size = new System.Drawing.Size(318, 140);
+            this.descriptionBox.Size = new System.Drawing.Size(423, 174);
             this.descriptionBox.TabIndex = 7;
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(489, 70);
+            this.nameBox.Location = new System.Drawing.Point(652, 88);
+            this.nameBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(318, 26);
+            this.nameBox.Size = new System.Drawing.Size(423, 31);
             this.nameBox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(485, 132);
+            this.label3.Location = new System.Drawing.Point(647, 165);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 20);
+            this.label3.Size = new System.Drawing.Size(111, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "Описание";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(485, 324);
+            this.label2.Location = new System.Drawing.Point(647, 405);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.Size = new System.Drawing.Size(64, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Цена";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(41, 47);
+            this.pictureBox1.Location = new System.Drawing.Point(55, 59);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(414, 249);
+            this.pictureBox1.Size = new System.Drawing.Size(552, 311);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -343,26 +368,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(485, 47);
+            this.label1.Location = new System.Drawing.Point(647, 59);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
+            this.label1.Size = new System.Drawing.Size(109, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Название";
             // 
             // Path
             // 
             this.Path.AutoSize = true;
-            this.Path.Location = new System.Drawing.Point(37, 354);
+            this.Path.Location = new System.Drawing.Point(49, 442);
+            this.Path.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Path.Name = "Path";
-            this.Path.Size = new System.Drawing.Size(46, 20);
+            this.Path.Size = new System.Drawing.Size(59, 25);
             this.Path.TabIndex = 1;
             this.Path.Text = "Путь";
             // 
             // addImage
             // 
-            this.addImage.Location = new System.Drawing.Point(41, 312);
+            this.addImage.Location = new System.Drawing.Point(55, 390);
+            this.addImage.Margin = new System.Windows.Forms.Padding(4);
             this.addImage.Name = "addImage";
-            this.addImage.Size = new System.Drawing.Size(268, 30);
+            this.addImage.Size = new System.Drawing.Size(357, 38);
             this.addImage.TabIndex = 0;
             this.addImage.Text = "Добавить картинку товара";
             this.addImage.UseVisualStyleBackColor = true;
@@ -373,19 +401,21 @@
             this.lookOrderTab.Controls.Add(this.searchButtonOrders);
             this.lookOrderTab.Controls.Add(this.searchBoxOrders);
             this.lookOrderTab.Controls.Add(this.dataGridView2);
-            this.lookOrderTab.Location = new System.Drawing.Point(4, 29);
+            this.lookOrderTab.Location = new System.Drawing.Point(8, 39);
+            this.lookOrderTab.Margin = new System.Windows.Forms.Padding(4);
             this.lookOrderTab.Name = "lookOrderTab";
-            this.lookOrderTab.Padding = new System.Windows.Forms.Padding(3);
-            this.lookOrderTab.Size = new System.Drawing.Size(1863, 969);
+            this.lookOrderTab.Padding = new System.Windows.Forms.Padding(4);
+            this.lookOrderTab.Size = new System.Drawing.Size(2479, 1205);
             this.lookOrderTab.TabIndex = 3;
             this.lookOrderTab.Text = "Просмотр заказов";
             this.lookOrderTab.UseVisualStyleBackColor = true;
             // 
             // searchButtonOrders
             // 
-            this.searchButtonOrders.Location = new System.Drawing.Point(292, 12);
+            this.searchButtonOrders.Location = new System.Drawing.Point(389, 15);
+            this.searchButtonOrders.Margin = new System.Windows.Forms.Padding(4);
             this.searchButtonOrders.Name = "searchButtonOrders";
-            this.searchButtonOrders.Size = new System.Drawing.Size(75, 26);
+            this.searchButtonOrders.Size = new System.Drawing.Size(100, 32);
             this.searchButtonOrders.TabIndex = 5;
             this.searchButtonOrders.Text = "Поиск";
             this.searchButtonOrders.UseVisualStyleBackColor = true;
@@ -393,38 +423,42 @@
             // 
             // searchBoxOrders
             // 
-            this.searchBoxOrders.Location = new System.Drawing.Point(8, 12);
+            this.searchBoxOrders.Location = new System.Drawing.Point(11, 15);
+            this.searchBoxOrders.Margin = new System.Windows.Forms.Padding(4);
             this.searchBoxOrders.Name = "searchBoxOrders";
-            this.searchBoxOrders.Size = new System.Drawing.Size(278, 26);
+            this.searchBoxOrders.Size = new System.Drawing.Size(369, 31);
             this.searchBoxOrders.TabIndex = 4;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.ContextMenuStrip = this.contextMenuStrip1;
-            this.dataGridView2.Location = new System.Drawing.Point(5, 55);
+            this.dataGridView2.Location = new System.Drawing.Point(7, 69);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 82;
             this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(1853, 902);
+            this.dataGridView2.Size = new System.Drawing.Size(2471, 1128);
             this.dataGridView2.TabIndex = 3;
             // 
             // addOrderTab
             // 
-            this.addOrderTab.Location = new System.Drawing.Point(4, 29);
+            this.addOrderTab.Location = new System.Drawing.Point(8, 39);
+            this.addOrderTab.Margin = new System.Windows.Forms.Padding(4);
             this.addOrderTab.Name = "addOrderTab";
-            this.addOrderTab.Padding = new System.Windows.Forms.Padding(3);
-            this.addOrderTab.Size = new System.Drawing.Size(1863, 969);
+            this.addOrderTab.Padding = new System.Windows.Forms.Padding(4);
+            this.addOrderTab.Size = new System.Drawing.Size(2479, 1205);
             this.addOrderTab.TabIndex = 4;
             this.addOrderTab.Text = "Добавление/Изменение заказов";
             this.addOrderTab.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1896, 1048);
+            this.ClientSize = new System.Drawing.Size(2528, 1310);
             this.Controls.Add(this.Outside);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Outside.ResumeLayout(false);

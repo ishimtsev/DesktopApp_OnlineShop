@@ -10,9 +10,12 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace DesktopApp_OnlineShop
 {
+
 	public partial class Form1 : Form
 	{
 		public Form1()
@@ -26,21 +29,33 @@ namespace DesktopApp_OnlineShop
             {
                 tab.Text = "";
             }
-            Outside.SelectedTab = mainTab;
+            Outside.SelectedTab = loginTab;
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        private async void LoginButton_Click(object sender, EventArgs e)
         {
-            WebRequest request = WebRequest.Create("SENDED_STRING");
-            WebResponse response = request.GetResponse();
-            Stream receiveStream = response.GetResponseStream();
-            StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
-            //Десериализация полученного json при помощи заранее созданного класса
-            //КЛАСС requests = JsonConvert.DeserializeObject<КЛАСС>(readStream.ReadToEnd());
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/auth/signin"))
+                {
+                    request.Headers.TryAddWithoutValidation("accept", "*/*");
+
+                    request.Content = new StringContent("{ \"password\": \"string\", \"response\": \"string\", \"username\": \"string\"}");
+                    request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+                    var response = await httpClient.SendAsync(request);
+
+                    var responseContent = await response.Content.ReadAsStringAsync();
+
+
+                    //Десериализация полученного json при помощи заранее созданного класса
+                    //var user = JsonConvert.DeserializeObject<User>(responseContent);
+                }
+            }
             
             //Некая проверка соединения и полученого токена
 
-            response.Close();
+
 
             Outside.SelectedTab = mainTab;
 
@@ -48,30 +63,30 @@ namespace DesktopApp_OnlineShop
 
         private void GoodsGridView()
         {
-            WebRequest request = WebRequest.Create("SENDED_STRING");
-            WebResponse response = request.GetResponse();
-            Stream receiveStream = response.GetResponseStream();
-            StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/auth/signin"))
+                {
+                }
+            }
             //Десериализация полученного json при помощи заранее созданного класса
             //КЛАСС requests = JsonConvert.DeserializeObject<КЛАСС>(readStream.ReadToEnd());
 
             //Запихивание товаров в DataGrid
-
-            response.Close();
         }
 
         private void OrdersGridView()
         {
-            WebRequest request = WebRequest.Create("SENDED_STRING");
-            WebResponse response = request.GetResponse();
-            Stream receiveStream = response.GetResponseStream();
-            StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/auth/signin"))
+                {
+                }
+            }
             //Десериализация полученного json при помощи заранее созданного класса
             //КЛАСС requests = JsonConvert.DeserializeObject<КЛАСС>(readStream.ReadToEnd());
 
             //Запихивание товаров в DataGrid
-
-            response.Close();
         }
 
         private void Search_Click(object sender, EventArgs e)
@@ -109,9 +124,12 @@ namespace DesktopApp_OnlineShop
             //Формирование отправляемой строки
 
 
-            WebRequest request = WebRequest.Create("SENDED_STRING");
-            WebResponse response = request.GetResponse();
-            response.Close();
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/auth/signin"))
+                {
+                }
+            }
         }
 
         private void changeTSMI_Click(object sender, EventArgs e)
@@ -129,11 +147,18 @@ namespace DesktopApp_OnlineShop
         private void deleteTSMI_Click(object sender, EventArgs e)
         {
             //формирование строки удаления 
-            WebRequest request = WebRequest.Create("SENDED_STRING");
-            WebResponse response = request.GetResponse();
-            response.Close();
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/auth/signin"))
+                {
+                }
+            }
         }
 
+
+    }
+    public class User
+    {
 
     }
 }
