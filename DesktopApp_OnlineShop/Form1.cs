@@ -34,34 +34,109 @@ namespace DesktopApp_OnlineShop
 
         private async void LoginButton_Click(object sender, EventArgs e)
         {
-            using (var httpClient = new HttpClient())
-            {
-                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/auth/signin"))
-                {
-                    request.Headers.TryAddWithoutValidation("accept", "*/*");
+			loginBox.Enabled = false;
+			passBox.Enabled = false;
+			try
+			{
+				using (var httpClient = new HttpClient())
+				{
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/auth/signin"))
+					{
+						request.Headers.TryAddWithoutValidation("accept", "*/*");
 
-                    request.Content = new StringContent("{ \"password\": \"string\", \"response\": \"string\", \"username\": \"string\"}");
-                    request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+						request.Content = new StringContent("{ \"password\": \"" + passBox.Text + "\", \"response\": \"string\", \"username\": \"" + loginBox.Text + "\"}"); request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
-                    var response = await httpClient.SendAsync(request);
+						var response = await httpClient.SendAsync(request);
+						var responseContent = await response.Content.ReadAsStringAsync();
 
-                    var responseContent = await response.Content.ReadAsStringAsync();
+						if (response.StatusCode == HttpStatusCode.OK)
+						{
+							//Десериализация полученного json при помощи заранее созданного класса
+							var user = JsonConvert.DeserializeObject<User>(responseContent);
+							var token = user.Token;
+							label5.Text = user.Token;
+							if (token != null)
+							{
+								Outside.SelectedTab = mainTab;
+								this.Text += " - " + user.Username;
+
+							}
+							else
+							{
+								throw new Exception();
+							}
+						}
+						else
+						{
+							throw new Exception();
+						}
+					}
+				}
+				Outside.SelectedTab = mainTab;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Неверный логин или пароль.");
+			}
+
+			loginBox.Enabled = true;
+			passBox.Enabled = true;
+		}
+
+		private async void Send_request()
+		{
+			try
+			{
+				using (var httpClient = new HttpClient())
+				{
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/auth/signin"))
+					{
+						request.Headers.TryAddWithoutValidation("accept", "*/*");
+
+						request.Content = new StringContent("{ \"password\": \"" + passBox.Text + "\", \"response\": \"string\", \"username\": \"" + loginBox.Text + "\"}"); request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+						var response = await httpClient.SendAsync(request);
+						var responseContent = await response.Content.ReadAsStringAsync();
+
+						if (response.StatusCode == HttpStatusCode.OK)
+						{
+							//Десериализация полученного json при помощи заранее созданного класса
+							var user = JsonConvert.DeserializeObject<User>(responseContent);
+							var token = user.Token;
+							label5.Text = user.Token;
+							if (token != null)
+							{
+								Outside.SelectedTab = mainTab;
+							}
+							else
+							{
+								throw new Exception("Неверный логин или пароль.");
+							}
+						}
+						else
+						{
+							throw new Exception("Неверный логин или пароль.");
+						}
 
 
-                    //Десериализация полученного json при помощи заранее созданного класса
-                    //var user = JsonConvert.DeserializeObject<User>(responseContent);
-                }
-            }
-            
-            //Некая проверка соединения и полученого токена
 
 
 
-            Outside.SelectedTab = mainTab;
 
-        }
 
-        private void GoodsGridView()
+					}
+				}
+
+
+				Outside.SelectedTab = mainTab;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.ToString());
+			}
+		}
+
+		private void GoodsGridView()
         {
             using (var httpClient = new HttpClient())
             {
@@ -157,8 +232,18 @@ namespace DesktopApp_OnlineShop
 
 
     }
-    public class User
-    {
+	public partial class User
+	{
+		[JsonProperty("success")]
+		public bool Success { get; set; }
 
-    }
+		[JsonProperty("username")]
+		public string Username { get; set; }
+
+		[JsonProperty("email")]
+		public string Email { get; set; }
+
+		[JsonProperty("token")]
+		public string Token { get; set; }
+	}
 }
