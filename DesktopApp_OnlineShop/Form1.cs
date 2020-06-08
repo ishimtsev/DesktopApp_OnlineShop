@@ -32,19 +32,19 @@ namespace DesktopApp_OnlineShop
             }
             Outside.SelectedTab = loginTab;
 
-			dataGridView1.ColumnCount = 5;
-			dataGridView1.Columns[0].Name = "ID";
-			dataGridView1.Columns[1].Name = "Название";
-			dataGridView1.Columns[2].Name = "Категория";
-			dataGridView1.Columns[3].Name = "Особенности";
-			dataGridView1.Columns[4].Name = "Описание";
+			productsDataGridView1.ColumnCount = 5;
+			productsDataGridView1.Columns[0].Name = "ID";
+			productsDataGridView1.Columns[1].Name = "Название";
+			productsDataGridView1.Columns[2].Name = "Категория";
+			productsDataGridView1.Columns[3].Name = "Особенности";
+			productsDataGridView1.Columns[4].Name = "Описание";
 
-			dataGridView3.ColumnCount = 5;
-			dataGridView3.Columns[0].Name = "ID";
-			dataGridView3.Columns[1].Name = "Имя";
-			dataGridView3.Columns[2].Name = "Email";
-			dataGridView3.Columns[3].Name = "Статус верифицирования";
-			dataGridView3.Columns[4].Name = "Номер телефона";
+			usersDataGridView3.ColumnCount = 5;
+			usersDataGridView3.Columns[0].Name = "ID";
+			usersDataGridView3.Columns[1].Name = "Имя";
+			usersDataGridView3.Columns[2].Name = "Email";
+			usersDataGridView3.Columns[3].Name = "Статус верифицирования";
+			usersDataGridView3.Columns[4].Name = "Номер телефона";
 
 
 		}
@@ -122,7 +122,11 @@ namespace DesktopApp_OnlineShop
                             var games = JsonConvert.DeserializeObject<Games>(responseContent);
                             if (games.Success == true)
                             {
-								for (int i = 0; i < games.GamesGames.Length; i++) dataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+								//productsDataGridView1.DataSource = null;
+								productsDataGridView1.Rows.Clear();
+								productsDataGridView1.Refresh();
+								for (int i = 0; i < games.GamesGames.Length; i++)
+									productsDataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
                             }
                             else
                             {
@@ -165,7 +169,11 @@ namespace DesktopApp_OnlineShop
 							var games = JsonConvert.DeserializeObject<Games>(responseContent);
 							if (games.Success == true)
 							{
-								for (int i = 0; i < games.GamesGames.Length; i++) dataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+								//ordersDataGridView2.DataSource = null;
+								ordersDataGridView2.Rows.Clear();
+								ordersDataGridView2.Refresh();
+								for (int i = 0; i < games.GamesGames.Length; i++)
+									ordersDataGridView2.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
 							}
 							else
 							{
@@ -206,7 +214,11 @@ namespace DesktopApp_OnlineShop
                             var users = JsonConvert.DeserializeObject<Users>(responseContent);
                             if (users.Success == true)
                             {
-                                for (int i = 0; i < users.Payload.Length; i++) dataGridView3.Rows.Add(users.Payload[i].Id, users.Payload[i].Username, users.Payload[i].Email, users.Payload[i].Verified, users.Payload[i].PhoneNumber);
+								//usersDataGridView3.DataSource = null;
+								usersDataGridView3.Rows.Clear();
+								usersDataGridView3.Refresh();
+								for (int i = 0; i < users.Payload.Length; i++)
+									usersDataGridView3.Rows.Add(users.Payload[i].Id, users.Payload[i].Username, users.Payload[i].Email, users.Payload[i].Verified, users.Payload[i].PhoneNumber);
                             }
                             else
                             {
