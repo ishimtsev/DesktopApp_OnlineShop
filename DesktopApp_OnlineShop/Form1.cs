@@ -32,20 +32,22 @@ namespace DesktopApp_OnlineShop
             }
             Outside.SelectedTab = loginTab;
 
-			productsDataGridView1.ColumnCount = 5;
-			productsDataGridView1.Columns[0].Name = "ID";
-			productsDataGridView1.Columns[1].Name = "Название";
-			productsDataGridView1.Columns[2].Name = "Категория";
-			productsDataGridView1.Columns[3].Name = "Особенности";
-			productsDataGridView1.Columns[4].Name = "Описание";
+			dataGridView1.ColumnCount = 5;
+			dataGridView1.Columns[0].Name = "ID";
+			dataGridView1.Columns[1].Name = "Название";
+			dataGridView1.Columns[2].Name = "Категория";
+			dataGridView1.Columns[3].Name = "Особенности";
+			dataGridView1.Columns[4].Name = "Описание";
 
-			usersDataGridView3.ColumnCount = 5;
-			usersDataGridView3.Columns[0].Name = "ID";
-			usersDataGridView3.Columns[1].Name = "Имя";
-			usersDataGridView3.Columns[2].Name = "Email";
-			usersDataGridView3.Columns[3].Name = "Статус верифицирования";
-			usersDataGridView3.Columns[4].Name = "Номер телефона";
+			dataGridView3.ContextMenuStrip = contextMenuStrip1;
+			dataGridView1.ContextMenuStrip = contextMenuStrip3;
 
+			dataGridView3.ColumnCount = 5;
+			dataGridView3.Columns[0].Name = "ID";
+			dataGridView3.Columns[1].Name = "Имя";
+			dataGridView3.Columns[2].Name = "Email";
+			dataGridView3.Columns[3].Name = "Статус верифицирования";
+			dataGridView3.Columns[4].Name = "Номер телефона";
 
 		}
 
@@ -122,11 +124,9 @@ namespace DesktopApp_OnlineShop
                             var games = JsonConvert.DeserializeObject<Games>(responseContent);
                             if (games.Success == true)
                             {
-								//productsDataGridView1.DataSource = null;
-								productsDataGridView1.Rows.Clear();
-								productsDataGridView1.Refresh();
-								for (int i = 0; i < games.GamesGames.Length; i++)
-									productsDataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+								dataGridView1.Rows.Clear();
+								dataGridView1.Refresh();
+								for (int i = 0; i < games.GamesGames.Length; i++) dataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
                             }
                             else
                             {
@@ -169,11 +169,9 @@ namespace DesktopApp_OnlineShop
 							var games = JsonConvert.DeserializeObject<Games>(responseContent);
 							if (games.Success == true)
 							{
-								//ordersDataGridView2.DataSource = null;
-								ordersDataGridView2.Rows.Clear();
-								ordersDataGridView2.Refresh();
-								for (int i = 0; i < games.GamesGames.Length; i++)
-									ordersDataGridView2.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+								dataGridView1.Rows.Clear();
+								dataGridView1.Refresh();
+								for (int i = 0; i < games.GamesGames.Length; i++) dataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
 							}
 							else
 							{
@@ -214,11 +212,9 @@ namespace DesktopApp_OnlineShop
                             var users = JsonConvert.DeserializeObject<Users>(responseContent);
                             if (users.Success == true)
                             {
-								//usersDataGridView3.DataSource = null;
-								usersDataGridView3.Rows.Clear();
-								usersDataGridView3.Refresh();
-								for (int i = 0; i < users.Payload.Length; i++)
-									usersDataGridView3.Rows.Add(users.Payload[i].Id, users.Payload[i].Username, users.Payload[i].Email, users.Payload[i].Verified, users.Payload[i].PhoneNumber);
+								dataGridView3.Rows.Clear();
+								dataGridView3.Refresh();
+								for (int i = 0; i < users.Payload.Length; i++) dataGridView3.Rows.Add(users.Payload[i].Id, users.Payload[i].Username, users.Payload[i].Email, users.Payload[i].Verified, users.Payload[i].PhoneNumber);
                             }
                             else
                             {
@@ -320,7 +316,6 @@ namespace DesktopApp_OnlineShop
             nameBox.Text = "";
             descriptionBox.Text = "";
             priceBox.Text = "";
-            stashBox.Text = "";
            //pictureBox1.
         }
 
@@ -340,6 +335,216 @@ namespace DesktopApp_OnlineShop
 			if (Inside.SelectedTab == lookTab) LoadProducts();
 			if (Inside.SelectedTab == tabPage1) LoadUsers();
 			if (Inside.SelectedTab == lookOrderTab) LoadOrders();
+		}
+
+
+        private async void деактивироватьУчётнуюЗаписьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/user/" + dataGridView3.Rows[dataGridView3.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+                    {
+                        request.Headers.TryAddWithoutValidation("accept", "*/*");
+						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
+
+						request.Content = new StringContent("{ \"verified\": false}");
+                        request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+                        var response = await httpClient.SendAsync(request);
+                        var responseContent = await response.Content.ReadAsStringAsync();
+
+
+                        if (response.StatusCode != HttpStatusCode.OK)
+                        {
+                            throw new Exception();
+                        }
+                    }
+                }
+				LoadUsers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void отобразитьЗаказыКлиентаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			try
+			{
+				using (var httpClient = new HttpClient())
+				{
+					//using (var request = new HttpRequestMessage(new HttpMethod("GET"), "http://shop.sceri.net/api/shop/order/" + dataGridView3.Rows[dataGridView3.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/list"))
+					//{
+					//	request.Headers.TryAddWithoutValidation("accept", "*/*");
+					//	request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
+
+					//	var response = await httpClient.SendAsync(request);
+					//	var responseContent = await response.Content.ReadAsStringAsync();
+
+
+					//	if (response.StatusCode == HttpStatusCode.OK)
+					//	{
+					//		//Десериализация полученного json при помощи заранее созданного класса
+					//		var games = JsonConvert.DeserializeObject<Games>(responseContent);
+					//		if (games.Success == true)
+					//		{
+					//			for (int i = 0; i < games.GamesGames.Length; i++) dataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+					//		}
+					//		else
+					//		{
+					//			throw new Exception();
+					//		}
+					//	}
+					//	else
+					//	{
+					//		throw new Exception();
+					//	}
+					//}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+
+
+
+        private void удалитьЗаказToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			//nameBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+			//textBox2.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
+			//descriptionBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+			//priceBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString();
+			Inside.SelectedTab = addOrderTab;
+		}
+
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			nameBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+			textBox2.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
+			descriptionBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+			priceBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString();
+			Inside.SelectedTab = addTab;
+        }
+
+        private async void принятToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			try
+			{
+				using (var httpClient = new HttpClient())
+				{
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+					{
+						request.Headers.TryAddWithoutValidation("accept", "*/*");
+						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
+
+						request.Content = new StringContent("{ \"status\": \"CREATED\" }");
+						request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+						var response = await httpClient.SendAsync(request);
+						if (response.StatusCode != HttpStatusCode.OK)
+						{
+							throw new Exception();
+						}
+					}
+				}
+				LoadOrders();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+
+        private async void вОбработкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			try
+			{
+				using (var httpClient = new HttpClient())
+				{
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+					{
+						request.Headers.TryAddWithoutValidation("accept", "*/*");
+						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
+
+						request.Content = new StringContent("{ \"status\": \"HANDLER\" }");
+						request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+						var response = await httpClient.SendAsync(request);
+						if (response.StatusCode != HttpStatusCode.OK)
+						{
+							throw new Exception();
+						}
+					}
+				}
+				LoadOrders();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+
+        private async void отправленToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			try
+			{
+				using (var httpClient = new HttpClient())
+				{
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+					{
+						request.Headers.TryAddWithoutValidation("accept", "*/*");
+						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
+
+						request.Content = new StringContent("{ \"status\": \"SEND\" }");
+						request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+						var response = await httpClient.SendAsync(request);
+						if (response.StatusCode != HttpStatusCode.OK)
+						{
+							throw new Exception();
+						}
+					}
+				}
+				LoadOrders();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+
+        private async void закрытToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			try
+			{
+				using (var httpClient = new HttpClient())
+				{
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+					{
+						request.Headers.TryAddWithoutValidation("accept", "*/*");
+						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
+
+						request.Content = new StringContent("{ \"status\": \"FINISHED\" }");
+						request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
+
+						var response = await httpClient.SendAsync(request);
+						if (response.StatusCode != HttpStatusCode.OK)
+						{
+							throw new Exception();
+						}
+					}
+				}
+				LoadOrders();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
     }
     public partial class User
