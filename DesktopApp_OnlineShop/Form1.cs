@@ -32,22 +32,22 @@ namespace DesktopApp_OnlineShop
             }
             Outside.SelectedTab = loginTab;
 
-			dataGridView1.ColumnCount = 5;
-			dataGridView1.Columns[0].Name = "ID";
-			dataGridView1.Columns[1].Name = "Название";
-			dataGridView1.Columns[2].Name = "Категория";
-			dataGridView1.Columns[3].Name = "Особенности";
-			dataGridView1.Columns[4].Name = "Описание";
+			productsDataGridView1.ColumnCount = 5;
+			productsDataGridView1.Columns[0].Name = "ID";
+			productsDataGridView1.Columns[1].Name = "Название";
+			productsDataGridView1.Columns[2].Name = "Категория";
+			productsDataGridView1.Columns[3].Name = "Особенности";
+			productsDataGridView1.Columns[4].Name = "Описание";
 
-			dataGridView3.ContextMenuStrip = contextMenuStrip1;
-			dataGridView1.ContextMenuStrip = contextMenuStrip3;
+			usersDataGridView3.ContextMenuStrip = contextMenuStrip1;
+			productsDataGridView1.ContextMenuStrip = contextMenuStrip3;
 
-			dataGridView3.ColumnCount = 5;
-			dataGridView3.Columns[0].Name = "ID";
-			dataGridView3.Columns[1].Name = "Имя";
-			dataGridView3.Columns[2].Name = "Email";
-			dataGridView3.Columns[3].Name = "Статус верифицирования";
-			dataGridView3.Columns[4].Name = "Номер телефона";
+			usersDataGridView3.ColumnCount = 5;
+			usersDataGridView3.Columns[0].Name = "ID";
+			usersDataGridView3.Columns[1].Name = "Имя";
+			usersDataGridView3.Columns[2].Name = "Email";
+			usersDataGridView3.Columns[3].Name = "Статус верифицирования";
+			usersDataGridView3.Columns[4].Name = "Номер телефона";
 
 		}
 
@@ -124,11 +124,49 @@ namespace DesktopApp_OnlineShop
                             var games = JsonConvert.DeserializeObject<Games>(responseContent);
                             if (games.Success == true)
                             {
-								dataGridView1.Rows.Clear();
-								dataGridView1.Refresh();
-								for (int i = 0; i < games.GamesGames.Length; i++) dataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
-                            }
-                            else
+								productsDataGridView1.Rows.Clear();
+								productsDataGridView1.Refresh();
+								for (int i = 0; i < games.GamesGames.Length; i++)
+									if (productsSearchBox.Text != "")
+									{
+										StringComparison comp = StringComparison.CurrentCultureIgnoreCase;
+										string search_str = productsSearchBox.Text;
+										if (games.GamesGames[i].Title.Contains(search_str) || games.GamesGames[i].Features.Contains(search_str) || games.GamesGames[i].Description.Contains(search_str))
+											productsDataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+										else
+										{
+											bool isSearched = false;
+											for (int j = 0; j < games.GamesGames[i].Categories.Length; j++)
+												if (games.GamesGames[i].Categories[j].Contains(search_str))
+												{
+													isSearched = true;
+													break;
+												}
+
+											if (isSearched)
+											{
+												string categories = "";
+												for (int k = 0; k < games.GamesGames[i].Categories.Length; k++)
+												{
+													categories += games.GamesGames[i].Categories[k] + " ";
+												}
+												productsDataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+											}
+										}
+									}
+									else //полный список, без поиска
+									{
+										string categories = "";
+										for (int k = 0; k < games.GamesGames[i].Categories.Length; k++)
+										{
+											categories += games.GamesGames[i].Categories[k] + " ";
+										}
+										productsDataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+
+									}
+								
+							}
+							else
                             {
                                 throw new Exception();
                             }
@@ -154,7 +192,7 @@ namespace DesktopApp_OnlineShop
 			{
 				using (var httpClient = new HttpClient())
 				{
-					using (var request = new HttpRequestMessage(new HttpMethod("GET"), "http://shop.sceri.net/api/shop/orders/list"))
+					using (var request = new HttpRequestMessage(new HttpMethod("GET"), "http://shop.sceri.net/api/shop/order/my"))
 					{
 						request.Headers.TryAddWithoutValidation("accept", "*/*");
 						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
@@ -169,9 +207,10 @@ namespace DesktopApp_OnlineShop
 							var games = JsonConvert.DeserializeObject<Games>(responseContent);
 							if (games.Success == true)
 							{
-								dataGridView1.Rows.Clear();
-								dataGridView1.Refresh();
-								for (int i = 0; i < games.GamesGames.Length; i++) dataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
+								productsDataGridView1.Rows.Clear();
+								productsDataGridView1.Refresh();
+								for (int i = 0; i < games.GamesGames.Length; i++)
+									productsDataGridView1.Rows.Add(games.GamesGames[i].Id, games.GamesGames[i].Title, games.GamesGames[i].Categories, games.GamesGames[i].Features, games.GamesGames[i].Description);
 							}
 							else
 							{
@@ -212,9 +251,10 @@ namespace DesktopApp_OnlineShop
                             var users = JsonConvert.DeserializeObject<Users>(responseContent);
                             if (users.Success == true)
                             {
-								dataGridView3.Rows.Clear();
-								dataGridView3.Refresh();
-								for (int i = 0; i < users.Payload.Length; i++) dataGridView3.Rows.Add(users.Payload[i].Id, users.Payload[i].Username, users.Payload[i].Email, users.Payload[i].Verified, users.Payload[i].PhoneNumber);
+								usersDataGridView3.Rows.Clear();
+								usersDataGridView3.Refresh();
+								for (int i = 0; i < users.Payload.Length; i++)
+									usersDataGridView3.Rows.Add(users.Payload[i].Id, users.Payload[i].Username, users.Payload[i].Email, users.Payload[i].Verified, users.Payload[i].PhoneNumber);
                             }
                             else
                             {
@@ -267,8 +307,8 @@ namespace DesktopApp_OnlineShop
 
         private void Search_Click(object sender, EventArgs e)
         {
-            //У тебя, вроде, был годный модуль для поиска. Вставь его сюда, пожалуйста. Если не можешь - скажи. Вставлю простенький.
-        }
+			LoadProducts();
+		}
 
         private void searchButtonOrders_Click(object sender, EventArgs e)
         {
@@ -344,7 +384,7 @@ namespace DesktopApp_OnlineShop
             {
                 using (var httpClient = new HttpClient())
                 {
-                    using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/user/" + dataGridView3.Rows[dataGridView3.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+                    using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/user/" + usersDataGridView3.Rows[usersDataGridView3.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
                     {
                         request.Headers.TryAddWithoutValidation("accept", "*/*");
 						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
@@ -424,10 +464,10 @@ namespace DesktopApp_OnlineShop
 
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-			nameBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
-			textBox2.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
-			descriptionBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
-			priceBox.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString();
+			nameBox.Text = productsDataGridView1.Rows[productsDataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+			textBox2.Text = productsDataGridView1.Rows[productsDataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
+			descriptionBox.Text = productsDataGridView1.Rows[productsDataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+			priceBox.Text = productsDataGridView1.Rows[productsDataGridView1.CurrentCell.RowIndex].Cells[2].Value.ToString();
 			Inside.SelectedTab = addTab;
         }
 
@@ -437,7 +477,7 @@ namespace DesktopApp_OnlineShop
 			{
 				using (var httpClient = new HttpClient())
 				{
-					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + ordersDataGridView2.Rows[ordersDataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
 					{
 						request.Headers.TryAddWithoutValidation("accept", "*/*");
 						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
@@ -466,7 +506,7 @@ namespace DesktopApp_OnlineShop
 			{
 				using (var httpClient = new HttpClient())
 				{
-					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + ordersDataGridView2.Rows[ordersDataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
 					{
 						request.Headers.TryAddWithoutValidation("accept", "*/*");
 						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
@@ -495,7 +535,7 @@ namespace DesktopApp_OnlineShop
 			{
 				using (var httpClient = new HttpClient())
 				{
-					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + ordersDataGridView2.Rows[ordersDataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
 					{
 						request.Headers.TryAddWithoutValidation("accept", "*/*");
 						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
@@ -524,7 +564,7 @@ namespace DesktopApp_OnlineShop
 			{
 				using (var httpClient = new HttpClient())
 				{
-					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + dataGridView2.Rows[dataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
+					using (var request = new HttpRequestMessage(new HttpMethod("POST"), "http://shop.sceri.net/api/shop/order/" + ordersDataGridView2.Rows[ordersDataGridView2.CurrentCell.RowIndex].Cells[0].Value.ToString() + "/update"))
 					{
 						request.Headers.TryAddWithoutValidation("accept", "*/*");
 						request.Headers.TryAddWithoutValidation("Authorization", "Bearer " + token);
@@ -614,6 +654,6 @@ namespace DesktopApp_OnlineShop
 		public string Features { get; set; }
 
 		[JsonProperty("categories")]
-		public long[] Categories { get; set; }
+		public string[] Categories { get; set; }
 	}
 }
